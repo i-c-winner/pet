@@ -1,5 +1,5 @@
 <?php
-function router($pdo)
+function getRouter($pdo)
 {
 	require(__DIR__ . "/UserController.php");
 	$typeController = $_GET['type'];
@@ -7,7 +7,6 @@ function router($pdo)
 	$action = $_GET['action'];
 	if ($typeController === 'users') {
 		$controller = new UserController();
-
 		if ($id) {
 			$sql = "SELECT * FROM users WHERE id=:id";
 			$stmt = $pdo->prepare($sql);
@@ -24,5 +23,3 @@ function router($pdo)
 		}
 	}
 }
-
-
