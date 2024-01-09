@@ -1,10 +1,7 @@
 <?php
-require_once(__DIR__ . "/api/GetApiAllItems.php");
-$method = $_SERVER["REQUEST_METHOD"];
-if ($method === "GET") {
-	$instanceAll = new GetApiAllItems('localhost', 'pet_project', 'root', '');
-	$instanceAll->init('users', 2);
-} else {
-	echo "POST";
-}
+require_once __DIR__ . "/rout/router.php";
+$pdo = new PDO("mysql: host=localhost; dbname=pet_project", "root", "");
+router($pdo);
+
+
 

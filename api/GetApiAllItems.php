@@ -15,13 +15,15 @@ class GetApiAllItems extends AbstractGetApI\AbstractApi
 	}
 	public function createanswer($answer)
 	{
-		$resutl = [];
+
 		while ($row = $answer->fetch()) {
-			$this->send($row['name']);
+			$result[] = ['name' => $row['name'], 'description' => $row['description']];
+
 		}
+		$this->send($result);
 	}
 	protected function send($value)
 	{
-		echo $value;
+		echo json_encode($value);
 	}
 }
