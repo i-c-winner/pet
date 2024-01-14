@@ -1,14 +1,15 @@
 <?php
+namespace Controller;
 
 class UserController
 {
+
 	public function getUserById($user)
 	{
-		echo ($user['name']);
+		return json_encode($user);
 	}
 	public function addUserById($data)
 	{
-
 	}
 	public function removeUserById($id)
 	{
